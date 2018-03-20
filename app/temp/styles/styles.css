@@ -727,6 +727,28 @@ a {
 		color: #2f5572;
 	}
 
+.site-footer {
+	background-color: #2f5572;
+	color: #fff;
+	padding: .5rem;
+	text-align: center;
+}
+
+.site-footer__text {
+		display: block;
+		margin-bottom: 1rem;
+		font-weight: 200;
+	}
+
+@media (min-width: 800px) {
+
+.site-footer__text {
+			display: inline;
+			margin-bottom: 0;
+			margin-right: 1.4rem
+	}
+	}
+
 /* Don't modify the _sprite.css directly. use gulp icon and sprite.css template */
 
 .icon {
