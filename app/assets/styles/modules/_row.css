@@ -1,5 +1,9 @@
 .row {
 
+	&--t-padding {
+		padding-top: 80px; /*used for testonials because individual columns were overlapping heading in that section*/
+	}
+
   @mixin clearFix;
 
   @mixin atSmall {
@@ -18,6 +22,14 @@
 
 	  &--gutters-large > div {
 	    padding-right: 100px;
+	  }
+
+	  &--gutters-small {
+	  	margin-right: -45px;
+	  }
+
+	  &--gutters-small > div {
+	  	padding-right: 45px;
 	  }
 	}
 
@@ -53,8 +65,27 @@
     &__medium-8--smaller {
       width: 63%;
     }
+
+  }
+
+  /*Begin equal height columns rule using flexbox*/
+
+  &--equal-height-at-medium {
+  	@mixin atMedium {
+  		display: flex;
+  	}
+
+  	& > div {
+  		float: none;
+  		display: flex;
+
+  	}
   }
   
 
 }
+
+
+
+
 

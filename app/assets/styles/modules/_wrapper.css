@@ -26,4 +26,14 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+
+	&--no-padding-until-small {
+		padding-left: 0;
+		padding-right: 0;
+
+		@mixin atSmall {
+			padding-left: 18px;
+			padding-right: 18px;
+		}
+	}
 }

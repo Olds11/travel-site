@@ -584,6 +584,26 @@ a {
 		color: #fff;
 	}
 
+.page-section--testimonials {
+		background-color: #e0e6ef;
+
+
+	}
+
+@media (min-width: 530px) {
+
+.page-section--testimonials {
+		background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;
+		background-size: cover
+
+
+	}
+	}
+
+.row--t-padding {
+		padding-top: 80px; /*used for testonials because individual columns were overlapping heading in that section*/
+	}
+
 .row::after {
 		content: "";
 		clear:both;
@@ -606,6 +626,14 @@ a {
 
 	  .row--gutters-large > div {
 	    padding-right: 100px;
+	  }
+
+	  .row--gutters-small {
+	  	margin-right: -45px;
+	  }
+
+	  .row--gutters-small > div {
+	  	padding-right: 45px;
 	  }
 	}
 
@@ -643,6 +671,21 @@ a {
     }
 	}
 
+/*Begin equal height columns rule using flexbox*/
+
+@media (min-width: 800px) {
+
+.row--equal-height-at-medium {
+  		display: flex
+  }
+	}
+
+.row--equal-height-at-medium > div {
+  		float: none;
+  		display: flex;
+
+  	}
+
 .section-title {
 	font-size: 2.55rem;
 	font-weight: 300;
@@ -671,11 +714,80 @@ a {
 @media (min-width: 530px) {
 
 .section-title__icon {
+			position: relative;
+			top: 8px;
 			margin-right: .8rem;
 			margin-left: 0;
 			margin-bottom: 0;
 			display: inline-block
 	}
+	}
+
+.section-title--blue {
+		color: #2f5572;
+	}
+
+.testimonial {
+	background-color: rgba(255, 255, 255, .8);
+	padding: 0 18px 1px 18px;  /*by giving it a bottom padding of 1px, it takes into account the paragraph padding. that's why it looks bigger than 1px of padding*/
+	margin-bottom: 100px;
+
+
+
+}
+
+@media (min-width: 530px) {
+
+.testimonial {
+		padding: 0 1.82rem 1px 1.82rem
+
+
+
+}
+	}
+
+@media (min-width: 800px) {
+
+.testimonial {
+		margin-bottom: 0
+
+
+
+}
+	}
+
+.testimonial__photo {
+		border-radius: 50%;
+		overflow: hidden;
+		width:160px;
+		height:160px;
+		margin: 0 auto -80px auto; /* used -80px for bottom because in the top positioning we moved image up and created extra space below image*/
+		position: relative;
+		top: -80px; /* pulls image up half it's height of 160px*/
+		border: 6px solid rgba(255, 255, 255, .8);
+
+	}
+
+.testimonial__title {
+		color: #2f5572;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;
+	}
+
+.testimonial__subtitle {
+		color: #d59541;
+		text-align: center;
+		font-size: .9375rem;
+		font-weight: 400;
+		margin: .25rem 0 1rem 0;
+
+
+	}
+
+.testimonial--last {
+		margin-bottom: 0;
 	}
 
 .wrapper {
@@ -705,6 +817,19 @@ a {
 .wrapper .wrapper {  /* wrappers within wrappers */
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+.wrapper--no-padding-until-small {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+@media (min-width: 530px) {
+
+.wrapper--no-padding-until-small {
+			padding-left: 18px;
+			padding-right: 18px
+	}
 	}
 
 
