@@ -7,7 +7,9 @@ cssvars = require("postcss-simple-vars"),
 nested = require("postcss-nested"),
 cssImport = require("postcss-import"),
 browserSync = require("browser-sync"),
-mixins = require("postcss-mixins");
+mixins = require("postcss-mixins"),
+svgSprite = require("gulp-svg-sprite"),
+rename = require("gulp-rename");
 
 gulp.task("default", function() {
 	console.log("Yay!");
@@ -49,6 +51,55 @@ gulp.task("cssInject", ["styles"], function(){  //injects css without refreshing
 	.pipe(browserSync.stream());
 
 });
+
+
+//sprite
+
+var config = {
+	mode:  {
+		css: {
+			render: {
+				css: {
+					template: "sprite.css"
+				}
+			}
+
+		}
+	}
+} //need to define in object literal for sprite package to work
+
+gulp.task("createSprite", function(){
+	return gulp.src("./app/assets/images/icons/**/*.svg")
+	.pipe(svgSprite(config))
+	.pipe(gulp.dest("./app/temp/sprite"));
+});
+
+gulp.task("copySpriteGraphic", ["createSprite"], function() {
+	return gulp.src("./app/temp/sprite/css/**/*.svg")
+	.pipe(gulp.dest("./app/assets/images/sprites"));
+});
+
+// gulp.task("createSprite", function(){
+// 	return gulp.src("../images/icons/**/*.svg")
+// 		.pipe(svgSprite(config))
+// 		.pipe(gulp.dest("./app/temp/sprite"));
+
+// });
+
+gulp.task("copySpriteCSS", ["createSprite"], function() {
+	return gulp.src("./app/temp/sprite/css/*.css")
+	.pipe(rename("_sprite.css"))
+	.pipe(gulp.dest("./app/assets/styles/modules"));
+});
+
+gulp.task("icons", ["createSprite", "copySpriteGraphic", "copySpriteCSS"]);
+
+
+
+
+
+
+
 
 
 
