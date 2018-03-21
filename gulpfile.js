@@ -3,13 +3,14 @@ watch = require("gulp-watch"),
 postcss = require("gulp-postcss"),
 fs = require("fs"),
 autoprefixer = require("autoprefixer"),
-cssvars = require("postcss-simple-vars"),
-nested = require("postcss-nested"),
-cssImport = require("postcss-import"),
-browserSync = require("browser-sync"),
-mixins = require("postcss-mixins"),
-svgSprite = require("gulp-svg-sprite"),
-rename = require("gulp-rename");
+cssvars = require("postcss-simple-vars"), //let's you use variables 
+nested = require("postcss-nested"), //let's you nest within CSS code
+cssImport = require("postcss-import"), //let's you use @import
+browserSync = require("browser-sync"), //sync browser
+mixins = require("postcss-mixins"), //let's you use mixins
+svgSprite = require("gulp-svg-sprite"), 
+rename = require("gulp-rename"),
+hexrgba = require("postcss-hexrgba"); //let's you use variable hex color values in rgba() format
 
 gulp.task("default", function() {
 	console.log("Yay!");
@@ -18,7 +19,7 @@ gulp.task("default", function() {
 
 gulp.task("styles", function(){
 	return gulp.src("./app/assets/styles/styles.css") //need return because gulp.src is asynchronus 
-	.pipe(postcss([cssImport, mixins, cssvars, nested, autoprefixer]))  //postcss requires array in ()
+	.pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba, autoprefixer]))  //postcss requires array in ()
 	.on("error", function(errorInfo){
 		console.log(errorInfo.toString()); //prints out error when it occurs
 		this.emit("end"); //lets gulp to keep working even if an error occurs
