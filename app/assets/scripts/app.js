@@ -99,5 +99,138 @@ var revealOnScrollFeatureItems = new RevealOnScroll($(".feature-item"), "80%");
 var revealOnScrollTestimonials = new RevealOnScroll($(".testimonial"), "60%");
 
 
+//STICKY HEADER
+
+//ES6 
+// class StickyHeader {
+// 	constructor() {
+// 		this.siteHeader = $(".site-header");
+// 		this.headerTriggerElement = $(".large-hero__title");
+// 		this.createHeaderWaypoint();
+// 		this.pageSections = $(".page-section");
+// 		this.headerLinks = $(".primary-nav a");
+// 		this.createPageSectionWaypoints();
+// 	}
+
+// 	createHeaderWaypoint() {
+// 		var that = this;
+// 		new Waypoint({
+// 			element: this.headerTriggerElement[0], //points to the native DOM element
+// 			handler: function(direction) {
+				
+// 				if (direction == "down") {
+// 					that.siteHeader.addClass("site-header--dark");
+// 				} else {
+// 					that.siteHeader.removeClass("site-header--dark");
+// 				}
+// 			}
+// 		});
+// 	}
+
+// 	createPageSectionWaypoints() {
+// 		var that = this;
+// 		this.pageSections.each(function(){
+// 			var currentPageSection = this;
+// 			new Waypoint({
+// 				element: currentPageSection,
+// 				handler: function() {
+// 					var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+// 					that.headerLinks.removeClass("is-current-link");
+// 					$(matchingHeaderLink).addClass("is-current-link");
+// 				}
+
+// 			}); 
+// 		});
+// 	}
+
+// }
+
+//ES5 
+
+function StickyHeader() {
+	this.siteHeader = $(".site-header");
+	this.headerTriggerElement = $(".large-hero__title");
+	this.pageSections = $(".page-section");
+	this.headerLinks = $(".primary-nav a");
+	this.createHeaderWaypoint = function() {
+		var that = this;
+		new Waypoint({
+			element: this.headerTriggerElement[0], //points to the native DOM element
+			handler: function(direction) {
+				
+				if (direction == "down") {
+					that.siteHeader.addClass("site-header--dark");
+				} else {
+					that.siteHeader.removeClass("site-header--dark");
+
+				}
+			}
+		});
+	}
+	this.createPageSectionWaypoints = function() {
+		var that = this;
+		this.pageSections.each(function(){
+			var currentPageSection = this;
+			new Waypoint({
+				element: currentPageSection,
+				handler: function(direction) {
+					if (direction == "down") {
+						var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+						that.headerLinks.removeClass("is-current-link");
+						$(matchingHeaderLink).addClass("is-current-link");
+					} 
+				},
+				offset: "18%"
+
+			}); 
+			new Waypoint({
+				element: currentPageSection,
+				handler: function(direction) {
+					if (direction == "up") {
+						var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+						that.headerLinks.removeClass("is-current-link");
+						$(matchingHeaderLink).addClass("is-current-link");
+					} 
+				},
+				offset: "-50%"
+
+			}); 
+		});
+	}
+
+	this.resetPageSectionWaypoints = function() {
+        var that = this;
+        new Waypoint({
+            element: this.headerTriggerElement[0],
+            handler: function(direction) {
+               if (direction == "up") {
+                   that.headerLinks.removeClass("is-current-link");
+               }
+            },
+            offset: "-30%"
+        });
+    }
+
+
+	this.createHeaderWaypoint();
+	this.createPageSectionWaypoints();
+	this.resetPageSectionWaypoints();
+}
+
+var stickyHeader = new StickyHeader();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
