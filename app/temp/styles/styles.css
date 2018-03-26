@@ -657,7 +657,7 @@ a {
 @media (min-width: 530px) {
 
 .page-section--testimonials {
-		background: url("assets/images/testimonials-bg.jpg") top center no-repeat;
+		background: url("/assets/images/testimonials-bg.jpg") top center no-repeat;
 		background-size: cover
 
 
@@ -1127,7 +1127,7 @@ a {
 /* Don't modify the _sprite.css directly. use gulp icon and sprite.css template */
 
 .icon {
-			background-image: url("assets/images/sprites/svg/sprite.css-d675eadb.svg");
+			background-image: url("/assets/images/sprites/svg/sprite.css-d675eadb.svg");
 		}
 
 .icon--clear-view-escapes {
