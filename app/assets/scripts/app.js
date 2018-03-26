@@ -110,8 +110,12 @@ var revealOnScrollTestimonials = new RevealOnScroll($(".testimonial"), "60%");
 // 		this.pageSections = $(".page-section");
 // 		this.headerLinks = $(".primary-nav a");
 // 		this.createPageSectionWaypoints();
+//		this.addSmoothScrolling();
 // 	}
-
+//	addSmoothScrolling() {
+//		this.headerLinks.smoothScroll();
+//	}
+//
 // 	createHeaderWaypoint() {
 // 		var that = this;
 // 		new Waypoint({
@@ -152,6 +156,10 @@ function StickyHeader() {
 	this.headerTriggerElement = $(".large-hero__title");
 	this.pageSections = $(".page-section");
 	this.headerLinks = $(".primary-nav a");
+	this.addSmoothScrolling = function() {
+		this.headerLinks.smoothScroll();
+	}
+
 	this.createHeaderWaypoint = function() {
 		var that = this;
 		new Waypoint({
@@ -215,6 +223,7 @@ function StickyHeader() {
 	this.createHeaderWaypoint();
 	this.createPageSectionWaypoints();
 	this.resetPageSectionWaypoints();
+	this.addSmoothScrolling();
 }
 
 var stickyHeader = new StickyHeader();
