@@ -7,6 +7,7 @@
 @import "modules/_feature-item";
 @import "modules/_generic-content-container";
 @import "modules/_headline";
+@import "modules/_modal";
 @import "modules/_page-section";
 @import "modules/_primary-nav";
 @import "modules/_reveal-item";
@@ -14,6 +15,7 @@
 @import "modules/_section-title";
 @import "modules/_site-footer";
 @import "modules/_site-header";
+@import "modules/_social-icons";
 @import "modules/_sprite";
 @import "modules/_testimonial";
 @import "modules/_wrapper";

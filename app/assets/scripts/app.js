@@ -229,8 +229,81 @@ function StickyHeader() {
 var stickyHeader = new StickyHeader();
 
 
+//MODAL
+
+//ES6
+
+// class Modal {
+// 	constructor() {
+// 		this.openModalButton = $(".open-modal");
+// 		this.modal = $(".modal");
+// 		this.closeModalButton = $(".modal__close");
+// 		this.events();
+// 	}
+
+// 	events() {
+// 		//clicking open modal button
+// 		this.openModalButton.click(this.openModal.bind(this));
+// 		//clicking x close modal button
+// 		this.closeModalButton.click(this.closeModal.bind(this));
+// 		//user pushes any key
+// 		$(document).keyup(this.keyPreshHandler.bind(this));
 
 
+// 	}
+
+// 	openModal() {
+// 		this.modal.addClass("modal--is-visible");
+// 		return false; //prevent default behavior of browser scrolling up when link clicked
+
+// 	}
+
+// 	closeModal(){
+// 		this.modal.removeClass("modal--is-visible");
+
+// 	}
+
+// 	keyPreshHandler(e) {
+// 		if (e.key === "Escape") {
+// 			this.closeModal();
+// 		}
+// 	}
+
+// }
+
+var Modal = function() {
+	this.openModalButton = $(".open-modal");
+	this.modal = $(".modal");
+	this.closeModalButton = $(".modal__close");
+	this.events = function() {
+		//clicking open modal button
+		this.openModalButton.click(this.openModal.bind(this));
+		//clicking x close modal button
+		this.closeModalButton.click(this.closeModal.bind(this));
+		//user pushes any key
+		$(document).keyup(this.keyPreshHandler.bind(this));
+	}
+	this.openModal = function() {
+		this.modal.addClass("modal--is-visible");
+		return false; //prevent default behavior of browser scrolling up when link clicked
+
+	}
+	this.closeModal = function(){
+		this.modal.removeClass("modal--is-visible");
+
+	}
+	this.keyPreshHandler=function(e) {
+		if (e.key === "Escape") {
+			this.closeModal();
+		}
+	}
+
+	this.events();
+
+}
+
+
+var modal = new Modal();
 
 
 

@@ -576,6 +576,62 @@ a {
 		margin-bottom: 1.6em;
 	}
 
+.modal {
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	z-index: 5;
+	background-color: rgba(255, 255, 255, .94);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	-webkit-transform: scale(1.2);
+	        transform: scale(1.2);
+	transition: all .3s ease-out;
+}
+
+.modal--is-visible {
+		opacity: 1;
+		visibility: visible;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+
+	}
+
+.modal__description {
+		text-align: center;
+		font-size: 1.3rem;
+		font-weight: 300;
+		line-height: 1.65;
+
+	}
+
+.modal__inner {
+		position:absolute;
+		width: 100%;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+	}
+
+.modal__close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 2rem;
+		-webkit-transform: scaleX(1.2);
+		        transform: scaleX(1.2);
+		-webkit-transform-origin: 100% 0;
+		        transform-origin: 100% 0;
+		color: #2f5572;
+	}
+
+.modal__close:hover {
+			color: #d59541;
+			cursor: pointer;
+		}
+
 .page-section {
 	padding: 1.2rem 0;
 }
@@ -837,6 +893,11 @@ a {
 		color: #2f5572;
 	}
 
+.section-title--less-margin {
+		margin-bottom: 1.3rem;
+		margin-top:0;
+	}
+
 .site-footer {
 	background-color: #2f5572;
 	color: #fff;
@@ -1050,6 +1111,19 @@ a {
 			        transform: scaleX(0);
 		}
 
+.social-icons {
+	text-align: center;
+}
+
+.social-icons__icon {
+		background-color: #d59541;
+		display: inline-block;
+	}
+
+.social-icons__icon .icon {
+			display: block;
+		}
+
 /* Don't modify the _sprite.css directly. use gulp icon and sprite.css template */
 
 .icon {
@@ -1202,6 +1276,10 @@ a {
 
 .wrapper--medium {
 		max-width: 976px;
+	}
+
+.wrapper--narrow {
+		max-width: 470px;
 	}
 
 .wrapper--b-margin {
