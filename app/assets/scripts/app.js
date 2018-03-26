@@ -314,5 +314,3 @@ var modal = new Modal();
 
 
 
-
-
