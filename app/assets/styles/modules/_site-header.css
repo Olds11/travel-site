@@ -75,6 +75,10 @@
 			padding-top: 100px;
 			transform: scale(1);
 
+			@mixin atMedium {
+				padding-top: 0;
+			}
+
 		}
 
 
